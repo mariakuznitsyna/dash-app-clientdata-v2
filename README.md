@@ -25,10 +25,11 @@ This project is a data visualization web app built with [Plotly Dash](https://da
 ├── main.py                  # Main Dash application file
 ├── requirements.txt         # Python package requirements
 └── README.md                # Project overview (you're here!)
+```
 
 ---
 
-### 💬 Let's Connect
+## 💬 Let's Connect
 
 - 💼 [Portfolio Website](https://www.mariakuznitsyna.com)  
 - 📧 mariakuznitsyna@gmail.com  
