@@ -16,13 +16,15 @@ This project is a data visualization web app built with [Plotly Dash](https://da
 - [Plotly](https://plotly.com/)
 - [Gunicorn](https://gunicorn.org/) (for deployment)
 
-## 🗂 Project Structure
 
-├── main.py # Main application file 
-├── requirements.txt # Python dependencies 
-├── Procfile # Process file for deployment (Render) 
-├── assets/ # Static assets (CSS, images, etc.) 
-└── README.md # This file
+## 📁 Project Structure
+
+```bash
+├── sales.csv                # Raw sales data
+├── product_info.csv         # Product metadata
+├── main.py                  # Main Dash application file
+├── requirements.txt         # Python package requirements
+└── README.md                # Project overview (you're here!)
 
 ---
 
