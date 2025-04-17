@@ -28,7 +28,7 @@ bar_chart = px.bar(
 
 # Create an app
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.QUARTZ])
-server = app.server
+server = app.server # Needed for Gunicorn
 
 # Create app layou
 app.layout = dbc.Container(
