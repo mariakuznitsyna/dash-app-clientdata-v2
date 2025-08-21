@@ -1,0 +1,92 @@
+/* --- KPI card hover micro-interactions --- */
+:root {
+  --kpi-lift: 6px;
+  --kpi-scale: 1.015;
+  --kpi-dur: 160ms;
+}
+
+.kpi-card {
+  position: relative;
+  overflow: hidden; /* for sheen sweep */
+  cursor: pointer;
+  will-change: transform;
+  transition: transform var(--kpi-dur) ease, box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(calc(-1 * var(--kpi-lift))) scale(var(--kpi-scale));
+  /* subtle, crisp shadow */
+  box-shadow: 0 1rem 1.25rem -0.25rem rgba(0, 0, 0, 0.25),
+    0 0.5rem 0.75rem -0.35rem rgba(0, 0, 0, 0.18);
+}
+
+.kpi-card:active {
+  transform: translateY(-2px) scale(0.995);
+}
+
+/* Optional: sheen sweep on hover */
+.kpi-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -150%;
+  width: 50%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 600ms ease;
+  pointer-events: none;
+}
+.kpi-card:hover::after {
+  left: 120%;
+}
+
+/* Optional: icon micro-motion on hover */
+.kpi-card .card-title .bi {
+  transition: transform var(--kpi-dur) ease, opacity var(--kpi-dur) ease;
+}
+.kpi-card:hover .card-title .bi {
+  transform: translateY(-1px) rotate(-2deg);
+  opacity: 0.95;
+}
+
+/* Focus ring for keyboard users */
+.kpi-card:focus-within {
+  outline: 2px solid var(--bs-warning);
+  outline-offset: 2px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .kpi-card,
+  .kpi-card::after,
+  .kpi-card .card-title .bi {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* Reduce graph height a bit on phones */
+@media (max-width: 576px) {
+  .js-plotly-plot,
+  .dash-graph {
+    height: 280px !important;
+  }
+}
+
+/* Table readability on phones */
+@media (max-width: 576px) {
+  .dash-table-container .dash-spreadsheet .row-1, /* header row */
+  .dash-table-container .dash-spreadsheet .cell {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+/* Slightly larger clickable sliders */
+.rc-slider {
+  padding: 10px 0;
+}
